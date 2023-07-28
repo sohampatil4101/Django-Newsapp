@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</head>
+<style>
+    form{
+        display: block;
+        margin: 100px auto;
+        justify-content: center;
+        width: 50vw;
+    }
+    .warning{
+        color: blue;
+    }
+    .danger{
+        color: red;
+    }
+</style>
+
+</script>
+<body>
+    
+    <form method="post", action="/otpverification">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" value="{{email}}" name="email" aria-describedby="emailHelp" disabled required>
+        </div>
+        <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">OTP</label>
+      <input type="number" class="form-control number" id="exampleInputPassword1" name="otp" required>
+      {% if otp %}
+      <small class="danger">Wrong otp</small>      
+      {% else %}
+      <small class="warning">OTP is sent on your mail</small>
+      {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a type="submit" class="btn btn-warning" href="/generateotp">Resend OTP</a>
+</form>
+    
+</body>
+</html>

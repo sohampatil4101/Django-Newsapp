@@ -1,0 +1,168 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    .navbar {
+      margin-top: 0;
+      height: 50px;
+      background-color: rgb(156 166 255);
+    }
+    .nav li{
+      text-decoration: none;
+      color: black;
+      margin: 0px 15px;
+    }
+    .content {
+        display: block;
+        margin: 15px auto;
+        width: 75vw;
+        height: 50px;
+    }
+    .carousel-inner{
+        height: 550px;
+    }
+    .info{
+        padding: 25px 0px;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+
+    
+.navbar li a{
+    font-family: 'Merriweather', serif;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+.navbar li a::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+.navbar li a:hover:after{
+    transform: scaleX(1);
+}
+
+
+  </style>
+  <body>
+    <div class="box">
+      <div class="navbar">
+        <div class="name">
+          <h3>NewsApp</h3>
+        </div>
+        <div class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About us</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">login</a></li>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>What did u read today?</h2>
+        <div class="crousel">
+          <div
+            id="carouselExampleAutoplaying"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'D:\newsapp-Django\Newsproject\static\newspaper1.jpg' %}" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'D:\newsapp-Django\Newsproject\static\newspaper2.jpg' %}" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'D:\newsapp-Django\Newsproject\static\newspaper3.jpg' %}" alt="...">
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleAutoplaying"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleAutoplaying"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <hr>
+        </div>
+        <div class="info">
+            <h3>Today's Headlines, Tomorrow's Insights</h3>
+            <div class="row ">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Daily fresh news</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Register</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Register for free</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Register</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">News according to your taste</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Register</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

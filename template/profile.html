@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </head>
+    <style>
+        .container img, h5{
+            display: flex;
+            justify-content: center;
+            margin: 5px auto;
+            width: 105px;
+            height: 105px;
+        }
+        .cards{
+            display: flex;
+            flex-direction: column;
+        }
+        .card{
+            width: 100%;
+            min-height: 180px;
+            margin-bottom: 15px;
+        }
+        .title{
+            border-bottom: 1px solid black;
+            background-color: rgb(220, 212, 212);
+            padding: 0px 5px;
+        }
+        .content{
+            padding: 0px 5px;
+        }
+        .button{
+            display: flex;
+            flex-direction: row;
+            margin: 8px 5px;
+        }
+        .btn{
+            margin: 8px 5px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .err{
+            display: flex;
+            justify-content: center;
+        }
+        .err h4{
+            margin-top: 10px;
+        }
+    </style>
+<body>
+    <div class="container">
+        <img src="{% static 'D:\newsapp-Django\Newsproject\static\profile.png' %}" class="card-img-top" alt="...">  
+        <h5>{{email}}</h5>  
+    </div>
+    
+    
+    {% if data %}
+    <div class="container">
+        <a class="btn btn-primary" href="createblog">createblog</a>
+        <h3>Your Blogs</h3>
+        <div class="cards">
+            {% for data in data %}
+                <div class="card">
+                    <div class="title">
+                        {{ data.title|slice:":60" }} {% if data.title|length > 60 %}...{% endif %}
+                    </div>
+                    <div class="content">
+                        {{ data.content|slice:":560" }} {% if data.content|length > 560 %}...{% endif %}
+                    </div>
+                    <div class="button">
+                        <button class="btn btn-success"><a href="viewblog/{{data.key}}/{{data.email}}">View</a></button>
+                        <button class="btn btn-danger"><a href="/deleteblog/{{data.key}}/{{data.email}}">Delete</a></button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    
+    {% else %}
+    <div class="err">
+        <h4>You haven't uploded any blogs yet...</h4>
+        <a class="btn btn-primary" href="createblog">createblog</a>
+    </div>
+        {% endif %}
+        
+</body>
+</html>

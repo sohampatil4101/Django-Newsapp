@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </head>
+    <style>
+        .card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 15px 0px;
+        }
+        .title{
+            padding: 0px 5px;
+            border-bottom: 1px solid black;
+            background-color: rgb(220, 212, 212);
+        }
+        .content{
+            padding: 0px 5px;
+        }
+        
+        .btn{
+            border-radius: 10px;
+            margin: 5px 5px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+    </style>
+<body>
+    <div class="container">
+        <div class="card">
+            {% for data in data %}
+            <div class="title">{{data.title}}</div>
+            <div class="content">{{data.content}}</div>
+            <div class="button">
+                <a class="btn btn-warning" href="/updateblog/{{data.key}}">update</a>
+                <a class="btn btn-danger" href="/deleteblog/{{data.key}}/{{data.email}}">Delete</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+</body>
+</html>

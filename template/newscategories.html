@@ -1,0 +1,31 @@
+{% extends 'newshome.html' %}
+{% load static %} 
+{% block body %}
+
+{% if data %}
+
+
+<div class="cards">
+{% for title, desc, i, link in mylist  %}
+<a href="{{link}}" target="_blank">
+    <div class="card">
+        {% if i %}
+        <img src="{{i}}" class="card-img-top" alt="...">    
+        {% else %}
+        <img src="{% static 'D:\newsapp-Django\Newsproject\static\No_image_available.svg.png' %}" alt="...">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ title|slice:":60" }} {% if title|length > 60 %}...{% endif %}</h5>
+            <p class="card-text">{{ desc|slice:":250" }} {% if desc|length > 250 %}...{% endif %}</p>
+        </div>
+    </div>
+</a>
+{% endfor %}
+</div>
+
+
+
+{% else %}
+    <h1>Api limit crossed</h1>
+{% endif %}
+{% endblock body %}

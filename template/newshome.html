@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+
+
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .navbar{
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(156 166 255);
+    }
+    .category{
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(156 166 255);
+        border-top: 1px solid black;
+        height: 35px;
+    }
+    .nav li{
+        text-decoration: none;
+        color: black;
+        margin: 0px 20px;
+    }
+    .cat {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        color: black;
+        list-style: none;
+        /* margin: 0px 20px; */
+    }
+    .cat a{
+        text-decoration: none;
+        color: black;
+        list-style: none;
+        margin: 0px 20px;
+    }
+    .cards{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 15px 50px;
+    }
+    .card{
+        width: 25vw;
+        min-width: 25vw;
+        max-width: 800px;
+        height: 400px;
+        margin: 10px 15px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .card:hover{
+        box-shadow: 12px 12px 12px;
+        transform: scaleY(20px);
+    }
+    .cards a{
+        text-decoration: none;
+
+    }
+    .card img{
+        width: 100%;
+        min-height: 200px;
+    }
+
+    
+.navbar li a{
+    font-family: 'Merriweather', serif;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+.navbar li a::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+.navbar li a:hover:after{
+    transform: scaleX(1);
+}
+
+</style>
+<body>
+    <div class="box">
+        <div class="navbar">
+            <div class="name">
+                <h3>NewsApp</h3>
+            </div>
+            <div class="nav">
+                <li><a href="/newscategories/General">Home</a></li>
+                <li><a href="/about">About us</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">logout</a></li>
+              </div>
+        </div>
+        <div class="category">
+            <div class="cat">
+                <a href="General"><li>Top headlines</li></a>
+                <a href="sports"><li>sports</li></a>    
+                <a href="politics"><li>politics</li></a>
+                <a href="business">business</a>
+                <a href="entertainment">entertainment</a>
+                <a href="health">health</a>
+                <a href="science">science</a>
+                <a href="technology">technology</a>
+                
+            </div>
+        </div>
+
+        
+      {% block body %}
+      
+      
+      {% endblock body %}
+
+        
+
+    </div>
+</body>
+</html>
