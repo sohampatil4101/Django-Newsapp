@@ -25,6 +25,27 @@
       height: 50px;
       background-color: rgb(156 166 255);
     }
+    @media (max-width:420px) {
+      
+      .navbar {
+        margin-top: 0;
+        height: 100px;
+        background-color: rgb(156 166 255);
+      }
+    }
+    @media (max-width:165px) {
+      .navbar {
+        margin-top: 0;
+        height: 200px;
+        background-color: rgb(156 166 255);
+      }
+      .content {
+        display: block;
+        margin: 15px auto;
+        width: 75vw;
+        height: 50px;
+    }
+    }
     .nav li{
       text-decoration: none;
       color: black;
@@ -46,7 +67,6 @@
         width: 100%;
         height: 100%;
     }
-
     
 .navbar li a{
     font-family: 'Merriweather', serif;
@@ -66,6 +86,10 @@
 }
 .navbar li a:hover:after{
     transform: scaleX(1);
+}
+.card{
+  margin-top: 15px;
+  height: 150px;
 }
 
 

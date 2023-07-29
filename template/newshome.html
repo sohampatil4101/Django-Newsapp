@@ -27,6 +27,34 @@
         border-top: 1px solid black;
         height: 35px;
     }
+    @media (max-width:844px) {
+        
+    .category{
+        height: 50px;
+    }
+        
+    }
+    @media (max-width:844px) {
+        
+    .category{
+        height: 80px;
+    }
+        
+    }
+    @media (max-width:310px) {
+        
+    .category{
+        height: 100px;
+    }
+        
+    }
+    @media (max-width:224px) {
+        
+    .category{
+        height: 170px;
+    }
+        
+    }
     .nav li{
         text-decoration: none;
         color: black;
@@ -35,16 +63,19 @@
     .cat {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         text-decoration: none;
         color: black;
         list-style: none;
-        /* margin: 0px 20px; */
     }
     .cat a{
         text-decoration: none;
         color: black;
         list-style: none;
         margin: 0px 20px;
+    }
+    .cat a:hover{
+        text-decoration: underline;
     }
     .cards{
         display: flex;
@@ -113,14 +144,14 @@
         </div>
         <div class="category">
             <div class="cat">
-                <a href="General"><li>Top headlines</li></a>
-                <a href="sports"><li>sports</li></a>    
-                <a href="politics"><li>politics</li></a>
-                <a href="business">business</a>
-                <a href="entertainment">entertainment</a>
-                <a href="health">health</a>
-                <a href="science">science</a>
-                <a href="technology">technology</a>
+                <li><a href="General">Top headlines</a></li>
+                <li><a href="sports">sports</a></li>
+                <li><a href="politics">politics</a></li>
+                <li><a href="business">business</a></li>
+                <li><a href="entertainment">entertainment</a></li>
+                <li><a href="health">health</a></li>
+                <li><a href="science">science</a></li>
+                <li><a href="technology">technology</a></li>
                 
             </div>
         </div>
