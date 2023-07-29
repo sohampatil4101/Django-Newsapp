@@ -25,6 +25,9 @@
         color: green;
         height: 100%;
     }
+    small{
+        color: red;
+    }
 </style>
 <body>
     <div class="container">
@@ -49,8 +52,8 @@
             </div>
             <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          {% if pass %}
-          <h6>{{mssg}}</h6>
+          {% if password %}
+          <small>{{mssg}}</small>
           {% else %}
           {% endif %}
           <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>

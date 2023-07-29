@@ -32,28 +32,21 @@ def about(request):
     return render(request, 'about.html')
 
 def register(request):
+    
         
     context = {'mail': False, 'pass':False}
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
 
-        if (len(password) < 5 ):
-            context={'pass':True,'mssg':"Password is not strong, should be atleast 5 characters !!", 'mail': False}
+        if(Appuser.objects.filter(email=email).exists() ):
+            context={'mail':True,'mssg':"Email exists!!", 'password': False}
             return render(request, 'register.html', context)
 
-        # elif (len(password) < 5 ):
-        #     context={'pass':True,'mssg':"Password is not strong, should be atleast 5 characters !!", 'mail': False}
-        #     return render(request, 'register.html', context)
-
-
-        elif ( Appuser.objects.filter(email=email).exists() ):
-            context={'mail':True,'mssg':"Email exists!!", 'pass': False}
+        elif(len(password) < 5 ):
+            context={'password':True,'mssg':"Password is not strong, should be atleast 5 characters !!", 'mail': False}
             return render(request, 'register.html', context)
-    
-
-
-
+       
         else:
             ins = Appuser(email = email, password = password)
             ins.save()
